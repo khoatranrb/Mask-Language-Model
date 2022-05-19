@@ -6,6 +6,8 @@ from multiprocessing import Pool
 import tqdm
 import sys
 
+nltk.download('punkt')
+
 in_path = 'test.txt'
 out_path = 'test_pre.txt'
 
