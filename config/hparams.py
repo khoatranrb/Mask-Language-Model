@@ -34,8 +34,8 @@ warmup = 0.1
 
 
 # Trainer params -----------------------------------------------------------------------------------------------------#
-epochs = 10
-log_freq = 10
+epochs = 50
+log_freq = 30
 save_train_loss = 50
 save_valid_loss = 500
 save_model = 10000
