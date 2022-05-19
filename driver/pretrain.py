@@ -132,7 +132,7 @@ class BERTTrainer:
                         self.train_loss_writer.add_scalar('train_loss', loss, self.step)
 
                     # writer
-                    if self.step % hp.save_runs == 0 and data["mlm_input"].size(0) == hp.batch_size: # 不足batch数量则不采样
+#                     if self.step % hp.save_runs == 0 and data["mlm_input"].size(0) == hp.batch_size: # 不足batch数量则不采样
 
                         # writer attns_layer
 #                         for layer, prob in enumerate(attn_list):
