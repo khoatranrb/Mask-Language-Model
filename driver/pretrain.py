@@ -135,24 +135,24 @@ class BERTTrainer:
                     if self.step % hp.save_runs == 0 and data["mlm_input"].size(0) == hp.batch_size: # 不足batch数量则不采样
 
                         # writer attns_layer
-                        for layer, prob in enumerate(attn_list):
-                            prob = prob[0]
-                            fig, axs = plt.subplots(1, 4, figsize=(20, 10))
-                            print("Layer", layer + 1)
-                            for h in range(hp.attn_heads):
-                                # a = self.model.bert.layers[layer].multihead.attention[0][h].data
-                                self.draw(prob[h].cpu().detach().numpy(),
-                                     [], [], ax=axs[h])
-                            plt.savefig(f"{self.path.plt_train_attn_path}/Epoch{epoch}_train_step{self.step}_layer{layer+1}")
+#                         for layer, prob in enumerate(attn_list):
+#                             prob = prob[0]
+#                             fig, axs = plt.subplots(1, 4, figsize=(20, 10))
+#                             print("Layer", layer + 1)
+#                             for h in range(hp.attn_heads):
+#                                 # a = self.model.bert.layers[layer].multihead.attention[0][h].data
+#                                 self.draw(prob[h].cpu().detach().numpy(),
+#                                      [], [], ax=axs[h])
+#                             plt.savefig(f"{self.path.plt_train_attn_path}/Epoch{epoch}_train_step{self.step}_layer{layer+1}")
                             # plt.show()
 
                         # tensorboardX write
-                        for i, prob in enumerate(attn_list):  # 第i层,每层画四个图
-                            prob = prob[0]
-                            for j in range(hp.attn_heads):  # 1,2,3,4  第j个
-                                # print(f"j * self.args.batch_size - 1:{j * self.args.batch_size - 1}")
-                                x = vutils.make_grid(prob[j] * 255)  # eg:如果是512,94,94  则取127,255,383,511
-                                self.train_attn_layer_writer.add_image(f'Epoch{epoch}_train_attn_layer{i}_head{j + 1}', x, self.step)
+#                         for i, prob in enumerate(attn_list):  # 第i层,每层画四个图
+#                             prob = prob[0]
+#                             for j in range(hp.attn_heads):  # 1,2,3,4  第j个
+#                                 # print(f"j * self.args.batch_size - 1:{j * self.args.batch_size - 1}")
+#                                 x = vutils.make_grid(prob[j] * 255)  # eg:如果是512,94,94  则取127,255,383,511
+#                                 self.train_attn_layer_writer.add_image(f'Epoch{epoch}_train_attn_layer{i}_head{j + 1}', x, self.step)
 
                         # write model_param
 #                         for name, param in self.model.module.named_parameters():  # param.clone().cpu().data.numpy()   .module
