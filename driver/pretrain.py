@@ -155,8 +155,8 @@ class BERTTrainer:
                                 self.train_attn_layer_writer.add_image(f'Epoch{epoch}_train_attn_layer{i}_head{j + 1}', x, self.step)
 
                         # write model_param
-                        for name, param in self.model.module.named_parameters():  # param.clone().cpu().data.numpy()   .module
-                            self.train_model_param_writer.add_histogram(f"Epoch{epoch}_train_{name}", param.clone().cpu().data.numpy(), self.step)
+#                         for name, param in self.model.module.named_parameters():  # param.clone().cpu().data.numpy()   .module
+#                             self.train_model_param_writer.add_histogram(f"Epoch{epoch}_train_{name}", param.clone().cpu().data.numpy(), self.step)
 
                     # save model checkpoint
                     if self.step % hp.save_checkpoint == 0:
