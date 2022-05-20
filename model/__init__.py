@@ -1,2 +1,3 @@
-from .bert import BERT
+# from .bert import BERT
 from .language_model import BERTLM
+from .fb_bert import BERT
