@@ -31,17 +31,17 @@ class Step(nn.Module):
     def forward(self, inp=None, update=False):
         if not update:
             scale = float(self.xxx)
-            scale = math.pow(scale, 1)
+#             scale = math.pow(scale, 1)
             if random.random() < 0.001:
                 print('s', scale)
             self.x = nn.Parameter(inp)
-            out1 = self.mod(self.x, mask)
-            out2 = self.mod(inp, mask)
+            out1 = self.mod(self.x)
+            out2 = self.mod(inp)
             return scale*out2+out1*(1-scale)
         else:
             score = ((self.x.grad*(inp-self.x))<=0).sum().item()/np.prod(list(inp.size()))
             self.xxx = self.xxx*0.1+0.9*score
-            return self.mod(inp, mask)
+            return self.mod(inp)
 
 
 def clones(module, N):
