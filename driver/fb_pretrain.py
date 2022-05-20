@@ -109,7 +109,7 @@ class BERTTrainer:
                     loss.backward()
                     self.optimer.step()
                     with torch.no_grad():
-                        self.model.forward(data["mlm_input"], data["input_position"])
+                        self.model.forward(data["mlm_input"], data["input_position"], True)
 
                     # loss
                     running_loss += loss.item()
