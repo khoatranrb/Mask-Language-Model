@@ -1,1 +1,1 @@
-from .pretrain import BERTTrainer
+from .fb_pretrain import BERTTrainer
