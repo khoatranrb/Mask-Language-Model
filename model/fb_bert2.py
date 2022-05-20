@@ -1,8 +1,8 @@
 import torch.nn as nn
 import config.hparams as hp
 import torch
-from model.transfomer_block import EncoderPrenet
-from model.transfomer_block import get_sinusoid_encoding_table, Attention, FFN, clones
+from model.fb_transfomer_block import EncoderPrenet
+from model.fb_transfomer_block import get_sinusoid_encoding_table, Attention, FFN, clones
 
 
 class BERT(nn.Module):
